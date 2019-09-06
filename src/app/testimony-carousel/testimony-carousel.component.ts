@@ -14,8 +14,9 @@ export class TestimonyCarouselComponent implements OnInit, AfterViewInit {
 
   readonly carouselConfig: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
-    interval: { timing: 10000, initialDelay: 0 },
+    interval: { timing: 5000, initialDelay: 0 },
     point: { visible: true },
+    loop: true,
   };
 
   constructor(private cdRef: ChangeDetectorRef) { }
