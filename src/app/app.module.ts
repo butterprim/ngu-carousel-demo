@@ -1,14 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NguCarouselModule } from '@ngu/carousel';
 
 import { AppComponent } from './app.component';
+import { DemoPageComponent } from './demo-page/demo-page.component';
+import { TestimonyCarouselComponent } from './testimony-carousel/testimony-carousel.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DemoPageComponent,
+    TestimonyCarouselComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NguCarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,37 @@
+<ngu-carousel
+  *ngIf="testimonies?.length > 0"
+  class="testimony-carousel"
+  [inputs]="carouselConfig"
+  [dataSource]="testimonies"
+  #testimonyCarousel
+>
+  <ngu-item NguCarouselItem class="testimony-content carousel-item" *nguCarouselDef="let testimony; let i = index">
+    <div class="testimony-content-wrapper">
+      <div class="testimony-source-photo">
+        <img [src]="testimony.photoUrl"/>
+      </div>
+      <div class="testimony-source-content">
+        <div class="testimony-message">{{ testimony.message }}</div>
+        <div class="testimony-source">
+          <div class="testimony-source-name">{{ testimony.name }}</div>
+          <div class="testimony-source-position">{{ testimony.position }}</div>
+        </div>
+        <div class="testimony-source-company">
+          <img [src]="testimony.companyLogo" [alt]="testimony.company"/>
+        </div>
+      </div>
+    </div>
+  </ngu-item>
+
+  <ul class="carousel-point" NguCarouselPoint>
+    <li
+      *ngFor="let j of testimonyCarousel.pointNumbers; let j = index"
+      [class.active]="j == testimonyCarousel.activePoint"
+      (click)="testimonyCarousel.moveTo(j)"
+      [style.background]="'url(' + testimonies[j] + ')'"
+    ></li>
+  </ul>
+
+  <div NguCarouselPrev class="carousel-navigation carousel-prev" *ngIf="testimonyCarousel.activePoint > 0">&lt;</div>
+  <div NguCarouselNext class="carousel-navigation carousel-next" *ngIf="testimonyCarousel.activePoint < testimonyCarousel.pointNumbers.length - 1">&gt;</div>
+</ngu-carousel>
